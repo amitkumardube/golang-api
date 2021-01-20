@@ -5,8 +5,8 @@ import (
     "net/http"
     "encoding/json"
     "log"
-    "golang-api/update_resource"
-    "golang-api/delete_resource"
+    "github.com/amitkumardube/CRUD/delete_resource"
+    "github.com/amitkumardube/CRUD/update_resource"
     "strings"
     )
 
