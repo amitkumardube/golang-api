@@ -80,12 +80,12 @@ func update(w http.ResponseWriter, req *http.Request){
     }
     old_value := strings.TrimSpace(man.Old_string)   // this is the value to be replaced
     new_value := strings.TrimSpace(man.New_string)   // this is the value that will replace the old value
-    if old_value == "" || new_value == "" {
-        fmt.Fprintf(w, "please pass parameters old_string and new_string in the json body")
+    old_string := return_final_output()   // this is the old string
+    new_string , err := update_resource.Update_resource(old_string,old_value,new_value)
+    if err != nil {
+        fmt.Fprintf(w,err.Error())
         return
     }
-    old_string := return_final_output()   // this is the old string
-    new_string := update_resource.Update_resource(old_string,old_value,new_value)
     // let's set the value of the map to replace value
     set_final_output(new_string)
     // writing the value back to response writer
@@ -103,12 +103,12 @@ func delete(w http.ResponseWriter, req *http.Request){
         return
     }
     old_value := strings.TrimSpace(man.Old_string)   // this is the value to be deleted
-    if old_value == "" {
-        fmt.Fprintf(w, "please pass parameter old_string in json body in order to delete it")
+    old_string := return_final_output()   // this is the old string
+    new_string , err := delete_resource.Delete_resource(old_string,old_value)
+    if err != nil {
+        fmt.Fprintf(w,err.Error())
         return
     }
-    old_string := return_final_output()   // this is the old string
-    new_string := delete_resource.Delete_resource(old_string,old_value)
     // let's set the value of the map to replace value
     set_final_output(new_string)
     // writing the value back to response writer
