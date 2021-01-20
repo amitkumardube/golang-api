@@ -22,3 +22,8 @@ golang API to perform the CRUD operations
 - http://localhost:8000/resource/read - read the string value
 - http://localhost:8000/resource/update - update a part of string with new value supplied
 - http://localhost:8000/resource/delete - delete a part of string
+
+<b> How to use automated testing </b>
+- The go testing package supports automated testing
+- In order to run test testcases , please run go test ./... 
+- This will trigger test cases in all the packages ( root and sub packages )
