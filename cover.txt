@@ -1,0 +1,7 @@
+mode: set
+golang-api/delete_resource/delete.go:9.73,10.24 1 1
+golang-api/delete_resource/delete.go:13.5,14.61 2 1
+golang-api/delete_resource/delete.go:10.24,12.6 1 1
+golang-api/update_resource/update.go:9.93,10.43 1 1
+golang-api/update_resource/update.go:13.5,14.68 2 1
+golang-api/update_resource/update.go:10.43,12.6 1 1
