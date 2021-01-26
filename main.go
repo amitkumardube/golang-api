@@ -27,7 +27,7 @@ func init(){
 
 func return_final_output() string{
     if final_output["terraform"] == "" {
-        return "Hello Terraform"
+        return "Hello Terraform \n"
     }else{
         return final_output["terraform"]
     }
@@ -123,7 +123,8 @@ func main(){
     http.HandleFunc("/resource/read",read)
     http.HandleFunc("/resource/update",update)
     http.HandleFunc("/resource/delete",delete)
+    http.HandleFunc("/",read)
 
-    fmt.Println("Launching application on port 8000")
-    http.ListenAndServe(":8000", nil)
+    fmt.Println("Launching application on port 8080")
+    http.ListenAndServe(":8080", nil)
 }
