@@ -34,6 +34,19 @@ func return_final_output() string{
 
 }
 
+// We need to check if end point was called with correct method.
+func check_req_method(w http.ResponseWriter , r http.Request , req_type string) {
+    req_method := r.Method
+    allowed_method := req_type
+    if strings.ToLower(req_method) == strings.ToLower(allowed_method) {
+        fmt.Sprintf("Call to end point is made with %s method which is correct. Processing Further.",req_type)
+    } else{
+        set_final_output(fmt.Sprintf("Call to end point is made with wrong Method - %s. Allowed Method is %s",req_method,allowed_method))
+        write_to_rw(w)
+        return
+    }
+}
+
 func set_final_output(new_string string)  {
     final_output["terraform"] = new_string
 }
@@ -43,8 +56,16 @@ func write_to_rw(w http.ResponseWriter){
     fmt.Fprintf(w,output)
 }
 
+// this function will reset the map to empty string
+
+func reset(w http.ResponseWriter, req *http.Request){
+    set_final_output("")
+    write_to_rw(w)
+}
+
 func create(w http.ResponseWriter, req *http.Request){
     log.Println("Calling the create function")
+    check_req_method(w, *req , "POST")
     body := json.NewDecoder(req.Body)
     body.UseNumber()
     var man string_manipulation
@@ -123,6 +144,7 @@ func main(){
     http.HandleFunc("/resource/read",read)
     http.HandleFunc("/resource/update",update)
     http.HandleFunc("/resource/delete",delete)
+    http.HandleFunc("/resource/reset",reset)
     http.HandleFunc("/",read)
 
     fmt.Println("Launching application on port 8080")
