@@ -22,6 +22,7 @@ golang API to perform the CRUD operations
 - http://localhost:8000/resource/read - read the string value
 - http://localhost:8000/resource/update - update a part of string with new value supplied
 - http://localhost:8000/resource/delete - delete a part of string
+- http://localhost:8000/resource/reset - reset the string. This will always display **Hello Terraform**.
 
 <b> How to use automated testing </b>
 - The go testing package supports automated testing.
