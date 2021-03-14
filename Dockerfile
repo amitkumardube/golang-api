@@ -1,7 +1,8 @@
 # choose the base image
 FROM golang:1.16
 # Add the maintainer
-maintainer "kshitiz DUBE golang developer from INDIA."
+LABEL description="golang CRUD operations APIs Application"
+LABEL Author="amitkumardube@gmail.com"
 # Working Directory for code
 WORKDIR /src
 # Add code under working directory
