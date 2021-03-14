@@ -42,3 +42,5 @@ golang API to perform the CRUD operations
 **docker-compose.yml**
 - This is declarative way of writing docker image.
 - We can create multi container applications using docker-compose.
+- ```docker-compose up``` will start the container application.
+- ```docker-compose down``` will stop all the container application.
