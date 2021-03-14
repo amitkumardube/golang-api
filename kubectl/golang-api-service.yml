@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: crud-service-cluster-ip
+spec:
+  selector:
+    app: crud
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

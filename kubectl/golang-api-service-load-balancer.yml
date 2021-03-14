@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: crud-service-load-balancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: crud
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
