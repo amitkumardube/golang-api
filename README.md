@@ -34,11 +34,11 @@ golang API to perform the CRUD operations
 - Command is - go tool cover -html=cover.txt -o cover.html.
 - Open cover.html in browser to review the test coverage.
 
-** Dockerfile **
+**Dockerfile**
 - Application is using go module.
 - It's important to copy go.mod and go.sum along with main.go in image for go to download dependencies at run time.
 - This file completely defines the structure of your application.
 
-** docker-compose.yml **
+**docker-compose.yml**
 - This is declarative way of writing docker image.
 - We can create multi container applications using docker-compose.
