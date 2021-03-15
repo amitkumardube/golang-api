@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name}}-deployment
+  labels:
+    app: crud
+spec:
+  replicas: {{ .Values.deployment.pods}}
+  selector:
+    matchLabels:
+      app: crud
+  template:
+    metadata:
+      labels:
+        app: crud
+    spec:
+      containers:
+      - name: crud
+        image: {{ .Values.deployment.image_name }}:{{ .Values.deployment.image_version }}
+        ports:
+        - containerPort: {{.Values.service.targetPort}}

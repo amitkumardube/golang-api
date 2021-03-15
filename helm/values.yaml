@@ -1,0 +1,8 @@
+service:
+  type: LoadBalancer
+  targetPort: 8080
+  port: 80
+deployment:
+  pods: 4
+  image_name: amitkuamrdube/crud
+  image_version: latest

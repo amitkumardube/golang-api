@@ -1,0 +1,8 @@
+apiVersion: v2
+name: golang-api-chart
+description: A chart for golang api
+keywords:
+  - golang-api
+type: application
+appVersion: 1.1
+version: 0.1.1
