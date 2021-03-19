@@ -5,9 +5,9 @@ import (
 	"testing"
   )
 
-func resource_test(t *testing.T){
+func TestResource(t *testing.T){
     terraformOptions := &terraform.Options{
-		
+        TerraformDir: "../",
     }
 
 	// defer the destroy part till the CLI is init and resources are created.
