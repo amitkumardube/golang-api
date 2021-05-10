@@ -44,3 +44,5 @@ golang API to perform the CRUD operations
 - We can create multi container applications using docker-compose.
 - ```docker-compose up``` will start the container application.
 - ```docker-compose down``` will stop all the container application.
+- ```docker-compose build``` will build all the images from docker file.
+- ```docker-compose logs``` will show logs for all the running services.
