@@ -1,0 +1,14 @@
+apiVersion: skaffold/v1
+kind: Config
+metadata:
+  name: microservices
+build:
+  tagPolicy:
+    gitCommit: {}
+  artifacts:
+  - image: amitkuamrdube/crud
+    context: .
+deploy:
+  kubectl:
+    manifests:
+    - kubectl/*.yml

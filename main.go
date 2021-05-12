@@ -9,6 +9,9 @@ import (
 
 	"github.com/amitkumardube/CRUD/delete_resource"
 	"github.com/amitkumardube/CRUD/update_resource"
+
+	"github.com/go-redis/redis/v8"
+	"context"
 )
 
 type string_manipulation struct {
@@ -20,10 +23,33 @@ type string_manipulation struct {
 
 var final_output map[string]string
 
+// variables for redis
+var redis_addr = "10.3.246.134"
+var redis_port = "6379"
+
+// creating an instance of redis
+
+func invoke_redis(){
+	var ctx = context.Background()
+        client := redis.NewClient(&redis.Options{
+                Addr: redis_addr+":"+redis_port,
+                Password: "",
+                DB: 0,
+        })
+	pong, err := client.Ping(ctx).Result()
+	if err != nil {
+		log.Fatal(pong, err)	
+	}
+	fmt.Println(pong, err)
+}
+
 // creating the init function to initialize the map
 func init() {
 	final_output = make(map[string]string)
 	final_output["terraform"] = ""
+
+	// initializing redis
+	invoke_redis()
 }
 
 func return_final_output() string {
